@@ -62,6 +62,31 @@
 }
 
 
+@font-face {
+    font-family: 'fontawesome';
+    src: url('fontawesome-webfont.eot');
+    src: url('fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontawesome-webfont.woff2') format('woff2'),
+         url('fontawesome-webfont.woff') format('woff'),
+         url('fontawesome-webfont.ttf') format('truetype'),
+         url('fontawesome-webfont.svg#fontawesome') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'glyphicon-regular';
+    src: url('glyphicons-halflings-regular.eot');
+    src: url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+         url('glyphicons-halflings-regular.woff') format('woff'),
+         url('glyphicons-halflings-regular.ttf') format('truetype'),
+         url('glyphicons-halflings-regular.svg#glyphicon-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 @font-face {
     font-family: 'slim_joeregular';

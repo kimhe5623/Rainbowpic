@@ -1,13 +1,11 @@
 .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
+    background-color: #89658200;
+    border-radius: 12px;
+    border: 2px solid #ffffff;
+    padding: 20px 36px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 17px;
-    font-family: 'amblelight';
-    margin: 4px 2px;
+    color: #ffffff;
+    font-size: 25px;
+    font-family: 'fontawesome';
     cursor: pointer;
 }
