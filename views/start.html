@@ -20,22 +20,28 @@
     </div>
     <div id="bd">
       <div class="content">
-        <div class="box-forfileload">
-          <div class="filepathbox">C:\Users\kimhe\Desktop\Rainbowpic\public\images\loaded-img.jpg</div>
-          <a class="btn" href="">Load</a>
-        </div>
-        <div class="img-container">
-          <img class="loaded-img" src="images/loaded-img.jpg" alt="loaded image">
-        </div>
-        <div class="btn-container">
-          <a class="btn" href="/ongoing">Convert</a>
-        </div>
+
+        <form action="/upload" method="post" target="_self">
+          <div class="box-forfileload">
+            <div class="filepathbox" id="filepathbox">Load image ~~~~~~ : )</div>
+            <label class="btn" for="input-file">Load</label>
+            <input type="file" id="input-file" accept="image/*">
+          </div>
+          <div class="img-container">
+            <img class="loaded-img" id="loaded-img" src="images/loaded-img.jpg" alt="loaded image">
+          </div>
+          <div class="btn-container">
+            <button onclick="post-toserver()" class="btn" href="/ongoing">Convert</button>
+          </div>
+        </form>
+
         <div id="footer">
           Chosun University / Code-no3 / for Capstone design
         </div>
       </div>
     </div>
   </div>
+  <script src='js/fileload.js'></script>
 </body>
 
 </html>

@@ -7,6 +7,10 @@ version: 2.2.2
 /* for all templates and grids */
 body{text-align:center;}
 
+#input-file{
+	display: none;
+}
+
 .logo-top{
 	display: block;
     margin-left: auto;
@@ -36,11 +40,12 @@ body{text-align:center;}
 }
 .filepathbox{
 	display: inline-block;
-	width: 70%;
+	width: 60%;
 	margin: 0;
 	margin-right: 10px;
 	background-color: #e2e2e2;
 	padding: 10px;
+	padding-left: 30px;
 	color: #616161;
 	text-align: left;
 	font-size: 17px;
