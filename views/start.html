@@ -21,7 +21,7 @@
     <div id="bd">
       <div class="content">
 
-        <form action="/upload" method="post" target="_self">
+        <form action="/upload" method="post" enctype="multipart/form-data">
           <div class="box-forfileload">
             <div class="filepathbox" id="filepathbox">Load image ~~~~~~ : )</div>
             <label class="btn" for="input-file">Load</label>
@@ -31,7 +31,7 @@
             <img class="loaded-img" id="loaded-img" src="images/loaded-img.jpg" alt="loaded image">
           </div>
           <div class="btn-container">
-            <button onclick="post-toserver()" class="btn" href="/ongoing">Convert</button>
+            <button class="btn">Convert</button>
           </div>
         </form>
 

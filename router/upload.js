@@ -1,36 +1,33 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-var originalName;
 
 var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'Loaded-imgs/')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now()+'.jpeg')
-    }
+  destination: function (req, file, cb) {
+    cb(null, 'Loaded-imgs/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname.split('.')[0] + '-' + Date.now() + '.'+ file.mimetype.split('/')[1]);
+  }
 });
 
-var upload = multer({ storage: storage }).single('inputImg');
+var upload = multer({ storage: storage }).single('Inputimg');
+
 
 // ROUTER
-router.post('/', function (req, res) {
-    var sess = req.session;
+router.post('/', function (req, res, next) {
 
-    res.render("ongoing.html"); // 로딩 화면
     upload(req, res, function (err) {
-        if (err) {
-            res.json({
-                success: false,
-                message: "Error is occured."
-            });
-          // 업로드할때 오류가 발생함
-        }
-    res.redirect("/result");
-    // 정상적으로 완료됨
-  })
-})
+      if (err) { // 업로드할때 오류가 발생함
+        res.json({
+          success: false,
+          message: "Error is occured."
+        });
+      }
+      res.json(req.file);
+    })
+
+});
 
 
 

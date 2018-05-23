@@ -8,7 +8,7 @@ var loader = preloader({
   });
 
 
-var render = require('./router/render');
+var render = require('./router/main');
 var upload = require('./router/upload');
 
 
