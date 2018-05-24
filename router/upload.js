@@ -26,7 +26,6 @@ router.post('/', function (req, res, next) {
       }
       res.json(req.file);
     })
-
 });
 
 
