@@ -19,9 +19,6 @@ file.onchange = function(){
         document.querySelector("#loaded-img").src = src;
         document.getElementById("filepathbox").innerHTML = Filename;
 
-        // 쿠키에 파일정보 저장
-        localStorage.setItem('filename', Filename);
-        localStorage.setItem('src', src);
     }
 }
 

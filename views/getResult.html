@@ -11,7 +11,7 @@
     <div id="doc" class="yui-t1">
         <div id="hd">
             <div id="header">
-                <a href="/">
+                <a href="/go/home">
                     <img class="logo-top" src="images/Rainbowpic_logo.png" alt="Rainbowpic Logo">
                 </a>
                 <br>
@@ -22,13 +22,13 @@
             <div class="content">
                 <div class="img-container">
                     🌸BEFORE🌸 <br>
-                    <img class="loaded-img" src="images/loaded-img.jpg" alt="loaded image"><br><hr class="dashed">
+                    <img id="before-img" class="loaded-img" src="images/loaded-img.jpg"  alt="loaded image"><br><hr class="dashed">
                     🌸AFTER🌸 <br>
-                    <img class="loaded-img" src="images/loaded-img.jpg" alt="loaded image">
+                    <img id="after-img" class="loaded-img" src="images/loaded-img.jpg" alt="loaded image">
                 </div>
                 <div class="btn-container">
-                    <a class="btn" href="/start">😳 Back</a>
-                    <a class="btn" href="">Save 😉</a>
+                    <a class="btn" href="/go/back">😳 Back</a>
+                    <a class="btn" href="/download">Save 😉</a>
                 </div>
                 <div id="footer">
                     Chosun University / Code-no3 / for Capstone design
@@ -37,5 +37,9 @@
         </div>
     </div>
 </body>
-
+<script>
+    var beforeImage = "<%=beforeImage%>", afterImage = "<%=afterImage%>";
+    document.querySelector('#before-img').src = beforeImage;
+    document.querySelector('#after-img').src = afterImage;    
+</script>
 </html>
