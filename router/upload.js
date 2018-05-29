@@ -49,8 +49,8 @@ router.post('/', function (req, res) {
   });
 });
 
-/* UPLOAD API list */
-router.post('/api-imgres', function (req, res) {
+/* Convert API list */
+router.post('/api/imgres', function (req, res) {
   var sess = req.session;
 
   upload(req, res, function (err) {
@@ -66,12 +66,18 @@ router.post('/api-imgres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    res.redirect('/get');
-
-  })
+    nrc.run('python3 Loaded-imgs/getGANresult.py -i '+ req.file.path).then(function(exitCodes){
+      res.redirect('/api/get/after');
+    }, function(err){
+      res.json({
+        success: false,
+        message: "Error is occured in GAN Codes"
+      });
+    });
+  });
 });
 
-router.post('/api-jsonres', function (req, res) {
+router.post('/api/jsonres', function (req, res) {
   var sess = req.session;
 
   upload(req, res, function (err) {
@@ -86,9 +92,14 @@ router.post('/api-jsonres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    res.send(req.file);
-  //  res.redirect('/get');
-
+    nrc.run('python3 Loaded-imgs/getGANresult.py -i '+ req.file.path).then(function(exitCodes){
+      res.send(req.file);
+    }, function(err){
+      res.json({
+        success: false,
+        message: "Error is occured in GAN Codes"
+      });
+    });
   })
 });
 
