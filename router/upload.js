@@ -38,7 +38,7 @@ router.post('/', function (req, res) {
     sess.localStorageID = localStorageID; // store localStorage information to session
 //    res.send(JSON.parse(localStorage.getItem('file')));
 
-    cmd =  "python pix2pix.py "
+    cmd =  "python Loaded-imgs/pix2pix.py "
           +"--mode test "
           +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
           +"--input_file "+ req.file.filename
@@ -73,7 +73,7 @@ router.post('/api/imgres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    cmd =  "python pix2pix.py "
+    cmd =  "python Loaded-imgs/pix2pix.py "
           +"--mode test "
           +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
           +"--input_file "+ req.file.filename
@@ -106,7 +106,7 @@ router.post('/api/jsonres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    cmd =  "python pix2pix.py "
+    cmd =  "python Loaded-imgs/pix2pix.py "
           +"--mode test "
           +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
           +"--input_file "+ req.file.filename
