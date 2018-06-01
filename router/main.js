@@ -43,19 +43,19 @@ router.get('/download', function (req, res) {
 router.get('/go/:where', function (req, res) {
     var sess = req.session;
 
-    rimraf('Loaded-imgs/outputs/images/'+sess.localStorageID+'*', function(err){
-        if(err){
+    rimraf('Loaded-imgs/outputs/images/' + sess.localStorageID + '*', function (err) {
+        if (err) {
             res.json({
                 success: false,
                 message: "Error is occured in going back or home"
             });
         }
-        rimraf('Loaded-imgs/outputs/events*', function(err){
-            if(err){
+        rimraf('Loaded-imgs/outputs/events*', function (err) {
+            if (err) {
                 res.json({
                     success: false,
                     message: "Error is occured in going back or home"
-                })
+                });
             }
 
             localStorage.removeItem(sess.localStorageID);
@@ -113,31 +113,39 @@ router.get('/api/get/after', function (req, res) {
     //   res.send(file);
 });
 
-router.get('/api/removeall', function(req, res){
+router.get('/api/removeall', function (req, res) {
     var sess = req.session;
     var filename = sess.localStorageID;
 
-    rimraf('Loaded-imgs/'+sess.localStorageID+'*', function(err){
-        if(err){
+    rimraf('Loaded-imgs/outputs/images/' + sess.localStorageID + '*', function (err) {
+        if (err) {
             res.json({
                 success: false,
                 message: "Error is occured in going back or home"
             });
         }
-
-        localStorage.removeItem(sess.localStorageID);
-
-        sess.destroy(function (err) {
+        rimraf('Loaded-imgs/outputs/events*', function (err) {
             if (err) {
                 res.json({
-                    success: "false",
-                    message: "Session can't be destroyed"
+                    success: false,
+                    message: "Error is occured in going back or home"
                 });
             }
-            res.json({
-                success: "true",
-                message: "All of files relevent to "+filename+" are successfully removed"
-            })
+
+            localStorage.removeItem(sess.localStorageID);
+
+            sess.destroy(function (err) {
+                if (err) {
+                    res.json({
+                        success: "false",
+                        message: "Session can't be destroyed"
+                    });
+                }
+                res.json({
+                    success: "true",
+                    message: "All of files relevent to " + filename + " are successfully removed"
+                })
+            });
         });
     });
 });
