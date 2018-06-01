@@ -10,7 +10,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'Loaded-imgs/')
+    cb(null, 'Loaded-imgs/images')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname.split('.')[0] + '-' + Date.now() + '.' + file.mimetype.split('/')[1]);
@@ -38,7 +38,14 @@ router.post('/', function (req, res) {
     sess.localStorageID = localStorageID; // store localStorage information to session
 //    res.send(JSON.parse(localStorage.getItem('file')));
 
-    nrc.run('python3 Loaded-imgs/getGANresult.py -i '+ req.file.path).then(function(exitCodes){
+    cmd =  "python pix2pix.py "
+          +"--mode test "
+          +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+          +"--input_file "+ req.file.filename
+          +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
+          +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+
+    nrc.run(cmd).then(function(exitCodes){
       res.redirect('/result');
     }, function(err){
       res.json({
@@ -66,7 +73,14 @@ router.post('/api/imgres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    nrc.run('python3 Loaded-imgs/getGANresult.py -i '+ req.file.path).then(function(exitCodes){
+    cmd =  "python pix2pix.py "
+          +"--mode test "
+          +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+          +"--input_file "+ req.file.filename
+          +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
+          +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+
+    nrc.run(cmd).then(function(exitCodes){
       res.redirect('/api/get/after');
     }, function(err){
       res.json({
@@ -92,7 +106,14 @@ router.post('/api/jsonres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    nrc.run('python3 Loaded-imgs/getGANresult.py -i '+ req.file.path).then(function(exitCodes){
+    cmd =  "python pix2pix.py "
+          +"--mode test "
+          +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+          +"--input_file "+ req.file.filename
+          +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
+          +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+
+    nrc.run(cmd).then(function(exitCodes){
       res.send(req.file);
     }, function(err){
       res.json({

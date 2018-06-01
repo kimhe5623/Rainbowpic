@@ -37,33 +37,41 @@ router.get('/download', function (req, res) {
     var filetype = '.' + file.mimetype.split('/')[1];
     var afterImage = file.filename.split(filetype)[0] + '-result' + filetype;
 
-    res.download('Loaded-imgs/' + afterImage, afterImage);
+    res.download('Loaded-imgs/outputs/images' + afterImage, afterImage);
 });
 
 router.get('/go/:where', function (req, res) {
     var sess = req.session;
 
-    rimraf('Loaded-imgs/'+sess.localStorageID+'*', function(err){
+    rimraf('Loaded-imgs/outputs/images'+sess.localStorageID+'*', function(err){
         if(err){
             res.json({
                 success: false,
                 message: "Error is occured in going back or home"
             });
         }
-
-        localStorage.removeItem(sess.localStorageID);
-
-        sess.destroy(function (err) {
-            if (err) {
+        rimraf('Loaded-imgs/outputs/events*', function(err){
+            if(err){
                 res.json({
-                    success: "false",
-                    message: "Session can't be destroyed"
-                });
+                    success: false,
+                    message: "Error is occured in going back or home"
+                })
             }
-            if (req.params.where = "back")
-                res.redirect('/start');
-            else if (req.params.where = "home")
-                res.redirect('/');
+
+            localStorage.removeItem(sess.localStorageID);
+
+            sess.destroy(function (err) {
+                if (err) {
+                    res.json({
+                        success: "false",
+                        message: "Session can't be destroyed"
+                    });
+                }
+                if (req.params.where = "back")
+                    res.redirect('/start');
+                else if (req.params.where = "home")
+                    res.redirect('/');
+            });
         });
     });
 });
