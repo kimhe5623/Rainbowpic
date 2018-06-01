@@ -38,12 +38,12 @@ router.post('/', function (req, res) {
     sess.localStorageID = localStorageID; // store localStorage information to session
 //    res.send(JSON.parse(localStorage.getItem('file')));
 
-    cmd =  "python Loaded-imgs/pix2pix.py "
-          +"--mode test "
-          +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
-          +"--input_file "+ req.file.filename
-          +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
-          +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+    var cmd = "python Loaded-imgs/pix2pix.py "
+            +"--mode test "
+            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+            +"--input_file "+ req.file.filename
+            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
+            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
 
     nrc.run(cmd).then(function(exitCodes){
       res.redirect('/result');
@@ -73,12 +73,12 @@ router.post('/api/imgres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    cmd =  "python Loaded-imgs/pix2pix.py "
-          +"--mode test "
-          +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
-          +"--input_file "+ req.file.filename
-          +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
-          +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+    var cmd = "python Loaded-imgs/pix2pix.py "
+            +"--mode test "
+            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+            +"--input_file "+ req.file.filename
+            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
+            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
 
     nrc.run(cmd).then(function(exitCodes){
       res.redirect('/api/get/after');
@@ -106,12 +106,12 @@ router.post('/api/jsonres', function (req, res) {
     localStorage.setItem(localStorageID, JSON.stringify(req.file));
     sess.localStorageID = localStorageID; // store localStorage information to session
 
-    cmd =  "python Loaded-imgs/pix2pix.py "
-          +"--mode test "
-          +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
-          +"--input_file "+ req.file.filename
-          +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
-          +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+    var cmd = "python Loaded-imgs/pix2pix.py "
+            +"--mode test "
+            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+            +"--input_file "+ req.file.filename
+            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
+            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
 
     nrc.run(cmd).then(function(exitCodes){
       res.send(req.file);
