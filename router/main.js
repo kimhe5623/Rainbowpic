@@ -43,7 +43,7 @@ router.get('/download', function (req, res) {
 router.get('/go/:where', function (req, res) {
     var sess = req.session;
 
-    rimraf('Loaded-imgs/outputs/images'+sess.localStorageID+'*', function(err){
+    rimraf('Loaded-imgs/outputs/images/'+sess.localStorageID+'*', function(err){
         if(err){
             res.json({
                 success: false,
