@@ -10,7 +10,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'Loaded-imgs/images')
+    cb(null, 'Loaded-imgs/outputs/images')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname.split('.')[0] + '-' + Date.now() + '.' + file.mimetype.split('/')[1]);
