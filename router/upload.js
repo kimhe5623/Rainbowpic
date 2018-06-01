@@ -41,7 +41,7 @@ router.post('/', function (req, res) {
     var cmd = "python Loaded-imgs/pix2pix.py "
             +"--mode test "
             +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
-            +"--input_file "+ req.file.filename
+            +"--input_file "+ req.file.filename +" "
             +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
             +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
 
@@ -76,7 +76,7 @@ router.post('/api/imgres', function (req, res) {
     var cmd = "python Loaded-imgs/pix2pix.py "
             +"--mode test "
             +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
-            +"--input_file "+ req.file.filename
+            +"--input_file "+ req.file.filename + " "
             +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
             +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
 
@@ -109,7 +109,7 @@ router.post('/api/jsonres', function (req, res) {
     var cmd = "python Loaded-imgs/pix2pix.py "
             +"--mode test "
             +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
-            +"--input_file "+ req.file.filename
+            +"--input_file "+ req.file.filename + " "
             +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
             +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
 
