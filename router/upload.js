@@ -10,7 +10,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'Loaded-imgs/outputs/images')
+    cb(null, 'Loaded-imgs/ouputs/images')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname.split('.')[0] + '-' + Date.now() + '.' + file.mimetype.split('/')[1]);
@@ -40,10 +40,10 @@ router.post('/', function (req, res) {
 
     var cmd = "python Loaded-imgs/pix2pix.py "
             +"--mode test "
-            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs/images "
             +"--input_file "+ req.file.filename +" "
-            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
-            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs "
+            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs";
 
     nrc.run(cmd).then(function(exitCodes){
       res.redirect('/result');
@@ -75,10 +75,10 @@ router.post('/api/imgres', function (req, res) {
 
     var cmd = "python Loaded-imgs/pix2pix.py "
             +"--mode test "
-            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs/images "
             +"--input_file "+ req.file.filename + " "
-            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
-            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs "
+            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs";
 
     nrc.run(cmd).then(function(exitCodes){
       res.redirect('/api/get/after');
@@ -108,10 +108,10 @@ router.post('/api/jsonres', function (req, res) {
 
     var cmd = "python Loaded-imgs/pix2pix.py "
             +"--mode test "
-            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs/images "
+            +"--input_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs/images "
             +"--input_file "+ req.file.filename + " "
-            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs "
-            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/outputs";
+            +"--output_dir /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs "
+            +"--checkpoint /home/jhsong/Rainbowpic-webserver/Loaded-imgs/ouputs";
 
     nrc.run(cmd).then(function(exitCodes){
       res.send(req.file);
