@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(session({
     secret: '@#@$MYRAINBOWPIC#@$#$',  // 쿠키를 임의로 변조하는 것을 방지하기 위한 값.
                                 // 이 값을 통하여 세션을 암호화하여 저장함
