@@ -35,7 +35,7 @@ var server = app.listen(3000, function(){
 });
 
 app.use(express.static('public'));
-app.use(express.static(__dirname+'/Loaded-imgs/outputs/images/'));
+app.use(express.static(__dirname+'/Loaded-imgs/ouputs/images/'));
 app.use('/', render);
 app.use('/upload', upload);
 
