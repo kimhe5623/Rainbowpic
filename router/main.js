@@ -36,7 +36,7 @@ router.get('/download', function (req, res) {
     var sess = req.session;
     var file = JSON.parse(localStorage.getItem(sess.localStorageID));
     var filetype = '.' + file.mimetype.split('/')[1];
-//    var afterImage = file.filename.split(filetype)[0] + '-result' + filetype;
+    //    var afterImage = file.filename.split(filetype)[0] + '-result' + filetype;
     var afterImage = file.filename.split(filetype)[0] + '-result' + '.png';
 
     res.download('Loaded-imgs/ouputs/images/' + afterImage, afterImage);
@@ -52,6 +52,7 @@ router.get('/go/:where', function (req, res) {
                 message: "Error is occured in going back or home"
             });
         }
+        /*
         rimraf('Loaded-imgs/ouputs/events*', function (err) {
             if (err) {
                 res.json({
@@ -59,23 +60,23 @@ router.get('/go/:where', function (req, res) {
                     message: "Error is occured in going back or home"
                 });
             }
+            */
+        localStorage.removeItem(sess.localStorageID);
 
-            localStorage.removeItem(sess.localStorageID);
-
-            sess.destroy(function (err) {
-                if (err) {
-                    res.json({
-                        success: "false",
-                        message: "Session can't be destroyed"
-                    });
-                }
-                if (req.params.where = "back")
-                    res.redirect('/start');
-                else if (req.params.where = "home")
-                    res.redirect('/');
-            });
+        sess.destroy(function (err) {
+            if (err) {
+                res.json({
+                    success: "false",
+                    message: "Session can't be destroyed"
+                });
+            }
+            if (req.params.where = "back")
+                res.redirect('/start');
+            else if (req.params.where = "home")
+                res.redirect('/');
         });
     });
+});
 });
 
 /* API - Remove related Data */
