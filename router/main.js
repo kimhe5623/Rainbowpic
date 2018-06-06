@@ -77,7 +77,6 @@ router.get('/go/:where', function (req, res) {
         });
     });
 });
-});
 
 /* API - Remove related Data */
 router.get('/api/get/before', function (req, res) {
