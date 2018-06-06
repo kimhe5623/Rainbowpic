@@ -148,7 +148,7 @@ router.get('/api/removeall', function (req, res) {
         });
     });
 });
-});
+
 
 
 module.exports = router;
