@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded());
 app.use(session({
     secret: '@#@$MYRAINBOWPIC#@$#$',  // 쿠키를 임의로 변조하는 것을 방지하기 위한 값.
                                 // 이 값을 통하여 세션을 암호화하여 저장함
@@ -35,7 +35,7 @@ var server = app.listen(3000, function(){
 });
 
 app.use(express.static('public'));
-app.use(express.static(__dirname+'/Loaded-imgs/outputs/images'));
+app.use(express.static(__dirname+'/Loaded-imgs/outputs/images/'));
 app.use('/', render);
 app.use('/upload', upload);
 

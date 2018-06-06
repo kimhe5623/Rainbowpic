@@ -37,7 +37,7 @@ router.get('/download', function (req, res) {
     var filetype = '.' + file.mimetype.split('/')[1];
     var afterImage = file.filename.split(filetype)[0] + '-result' + filetype;
 
-    res.download('Loaded-imgs/ouputs/images' + afterImage, afterImage);
+    res.download('Loaded-imgs/ouputs/images/' + afterImage, afterImage);
 });
 
 router.get('/go/:where', function (req, res) {
