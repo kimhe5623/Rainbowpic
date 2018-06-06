@@ -19,9 +19,9 @@ router.get('/start', function (req, res) {
 router.get('/result', function (req, res) {
     var sess = req.session;
     var file = JSON.parse(localStorage.getItem(sess.localStorageID));
-    var filetype = '.' + file.mimetype.split('/')[1];
+    //var filetype = '.' + file.mimetype.split('/')[1];
     //var afterImage = file.filename.split(filetype)[0] + '-result' + filetype;
-    var afterImage = file.filename.split(filetype)[0] + '-result' + '.png';
+    var afterImage = file.filename.split('.png')[0] + '-result' + '.png';
 
     //    res.send(file);
     res.render('getResult.html', {
@@ -35,9 +35,9 @@ router.get('/result', function (req, res) {
 router.get('/download', function (req, res) {
     var sess = req.session;
     var file = JSON.parse(localStorage.getItem(sess.localStorageID));
-    var filetype = '.' + file.mimetype.split('/')[1];
+//    var filetype = '.' + file.mimetype.split('/')[1];
     //    var afterImage = file.filename.split(filetype)[0] + '-result' + filetype;
-    var afterImage = file.filename.split(filetype)[0] + '-result' + '.png';
+    var afterImage = file.filename.split('.png')[0] + '-result' + '.png';
 
     res.download('Loaded-imgs/ouputs/images/' + afterImage, afterImage);
 });
@@ -99,9 +99,9 @@ router.get('/api/get/before', function (req, res) {
 router.get('/api/get/after', function (req, res) {
     var sess = req.session;
     var file = JSON.parse(localStorage.getItem(sess.localStorageID));
-    var filetype = '.' + file.mimetype.split('/')[1];
-    var afterPath = file.path.split(filetype)[0] + '-result' + filetype;
-    var afterPath = file.filename.split(filetype)[0] + '-result' + '.png';
+ //   var filetype = '.' + file.mimetype.split('/')[1];
+ //   var afterPath = file.path.split(filetype)[0] + '-result' + filetype;
+    var afterPath = file.filename.split('.png')[0] + '-result' + '.png';
 
     fs.readFile(afterPath, function (err, content) {
         if (err) {
