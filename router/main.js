@@ -124,30 +124,30 @@ router.get('/api/removeall', function (req, res) {
                 message: "Error is occured in going back or home"
             });
         }
-        rimraf('Loaded-imgs/ouputs/events*', function (err) {
+        /*        rimraf('Loaded-imgs/ouputs/events*', function (err) {
+                    if (err) {
+                        res.json({
+                            success: false,
+                            message: "Error is occured in going back or home"
+                        });
+                    }
+        */
+        localStorage.removeItem(sess.localStorageID);
+
+        sess.destroy(function (err) {
             if (err) {
                 res.json({
-                    success: false,
-                    message: "Error is occured in going back or home"
+                    success: "false",
+                    message: "Session can't be destroyed"
                 });
             }
-
-            localStorage.removeItem(sess.localStorageID);
-
-            sess.destroy(function (err) {
-                if (err) {
-                    res.json({
-                        success: "false",
-                        message: "Session can't be destroyed"
-                    });
-                }
-                res.json({
-                    success: "true",
-                    message: "All of files relevent to " + filename + " are successfully removed"
-                })
-            });
+            res.json({
+                success: "true",
+                message: "All of files relevent to " + filename + " are successfully removed"
+            })
         });
     });
+});
 });
 
 
