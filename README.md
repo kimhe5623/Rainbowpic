@@ -5,30 +5,46 @@ A system which enables users to easily use high-quality image enhancement servic
 
 ![image](https://user-images.githubusercontent.com/32252093/103224669-76e54f80-496b-11eb-8154-caf70cbc024d.png)
 
-## 2. Flow chart
+## 2. System Diagram
 
 ### - Showing upgraded image function for Web Client [DMO1]
-![image](https://user-images.githubusercontent.com/32252093/103224850-e8bd9900-496b-11eb-8823-1050f208c488.png)
-![image](https://user-images.githubusercontent.com/32252093/103224868-f6731e80-496b-11eb-923c-697054a4774d.png)
-![image](https://user-images.githubusercontent.com/32252093/103224878-fffc8680-496b-11eb-9fa7-af94d952c06a.png)
+- Flow chart
+![image](https://user-images.githubusercontent.com/32252093/103260733-18a78380-49e2-11eb-9d16-173db09dba30.png)
+- Block Diagram on Web Client
+![image](https://user-images.githubusercontent.com/32252093/103260740-1fce9180-49e2-11eb-9b09-310033cb1add.png)
+- Block Diagram on Web Server
+![image](https://user-images.githubusercontent.com/32252093/103260747-2826cc80-49e2-11eb-8ea9-40338201e2f7.png)
 
 ### - Showing upgraded image function for App Client [DMO2]
-![image](https://user-images.githubusercontent.com/32252093/103224898-08ed5800-496c-11eb-9b42-650be3115fce.png)
-![image](https://user-images.githubusercontent.com/32252093/103224917-160a4700-496c-11eb-9929-a4683ea700f9.png)
-![image](https://user-images.githubusercontent.com/32252093/103224931-1c002800-496c-11eb-938a-65a51fbed3ed.png)
+- Flow Chart
+![image](https://user-images.githubusercontent.com/32252093/103260756-35dc5200-49e2-11eb-950a-9dbb57623b48.png)
+- Block Diagram on App Client
+![image](https://user-images.githubusercontent.com/32252093/103260765-3e348d00-49e2-11eb-89bb-652392aac6f5.png)
+- Block Diagram on Web Server
+![image](https://user-images.githubusercontent.com/32252093/103260793-53a9b700-49e2-11eb-8767-87bd9b11839c.png)
 
 ### - Deleting related files function for Web Client [DM1]
-![image](https://user-images.githubusercontent.com/32252093/103224942-21f60900-496c-11eb-9176-bb219b29aea1.png)
-![image](https://user-images.githubusercontent.com/32252093/103224956-28848080-496c-11eb-97a3-5ce24f3d088d.png)
-![image](https://user-images.githubusercontent.com/32252093/103224969-31755200-496c-11eb-9947-c2d9239da6f0.png)
+- Flow Chart
+![image](https://user-images.githubusercontent.com/32252093/103260802-5ad0c500-49e2-11eb-84be-73a8a1b10eea.png)
+- Block Diagram on Web Client
+![image](https://user-images.githubusercontent.com/32252093/103260810-63c19680-49e2-11eb-83a1-f80d178adf75.png)
+- Block Diagram on Web Server
+![image](https://user-images.githubusercontent.com/32252093/103260817-69b77780-49e2-11eb-9618-6a5cdbf6e095.png)
 
 ### - Deleting related files function for App Client [DM2]
-![image](https://user-images.githubusercontent.com/32252093/103224984-39cd8d00-496c-11eb-9958-1d11c245e4e7.png)
-![image](https://user-images.githubusercontent.com/32252093/103224994-40f49b00-496c-11eb-84ab-fbcccc4b11b9.png)
-![image](https://user-images.githubusercontent.com/32252093/103225002-48b43f80-496c-11eb-8252-27c64d152c5c.png)
+- Flow Chart
+![image](https://user-images.githubusercontent.com/32252093/103260830-720fb280-49e2-11eb-9453-5dd31762c41e.png)
+- Block Diagram on App Client
+![image](https://user-images.githubusercontent.com/32252093/103260835-76d46680-49e2-11eb-9578-a5b1ec62faa4.png)
+- Block Diagram on Web Server
+![image](https://user-images.githubusercontent.com/32252093/103260841-7c31b100-49e2-11eb-88e8-389896e78582.png)
 
 ### - API Functions
-![image](https://user-images.githubusercontent.com/32252093/103225045-65507780-496c-11eb-8163-35b1cae716b4.png)
-![image](https://user-images.githubusercontent.com/32252093/103225051-6c778580-496c-11eb-8306-621dc8663add.png)
-![image](https://user-images.githubusercontent.com/32252093/103225069-77321a80-496c-11eb-9943-e472de60cfaf.png)
-![image](https://user-images.githubusercontent.com/32252093/103225418-34247700-496d-11eb-94f2-ce0280a20d19.png)
+- /upload/api/jsonres
+![image](https://user-images.githubusercontent.com/32252093/103260848-82c02880-49e2-11eb-8e12-59762dcb8576.png)
+- /api/get/before
+![image](https://user-images.githubusercontent.com/32252093/103260858-8b186380-49e2-11eb-9402-b5051d837157.png)
+- /api/get/after
+![image](https://user-images.githubusercontent.com/32252093/103260866-91a6db00-49e2-11eb-9a03-99218365c8a6.png)
+- /api/removeall
+![image](https://user-images.githubusercontent.com/32252093/103260872-99667f80-49e2-11eb-849a-b7b30ab2d82b.png)
