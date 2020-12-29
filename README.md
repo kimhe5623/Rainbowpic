@@ -1,3 +1,5 @@
+# Table of Contents
+
 [Rainbowpic](#Rainbowpic)
 1. [System reference](#System-reference)  
 2. [System diagram](#System-diagram)
